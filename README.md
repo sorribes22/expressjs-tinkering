@@ -166,6 +166,47 @@ If you want to use only JSONs to struct your input/output data ensure your api s
 app.use(express.json())
 ```
 
+#### Change the type of the project
+If you want to change the type of the project from commonjs (default) to a module, you can add the `type` property in the `package.json` file.
+```json
+{
+  "type": "module",
+  ...
+}
+```
+
+So now you can use the `import` and `export` statements in your code instead of `require` and `module.exports`.
+Take in consideration that we did not need to specify the file extension in the `require` statement. Now we will need to do it.
+
+Before:
+```javascript
+const express = require('express')
+```
+
+After:
+```javascript
+import express from 'express'
+```
+
+#### Import json files
+If you want to import a json file in your code, you can use the `import` statement. But you will need to specify the type of the file [using `with` statement](https://github.com/tc39/proposal-import-attributes).
+```javascript
+import data from './data.json' with { type: 'json' }
+```
+
+Alternatively, if `with` it's not supported yet, you can use the `fs` module to read the file and parse it.
+```javascript
+import fs from 'node:fs'
+const data = JSON.parse(fs.readFileSync('./data.json', 'utf-8'))
+```
+
+Also, you can use the `createRequire` function to import a module from a URL.
+```javascript
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
+const data = require('./data.json')
+```
+
 ## References
 - [Good NodeJS Docker practises](https://softwarecrafters.io/devops/docker-nodejs-buenas-practicas)
 - [StandardJS](https://standardjs.com/)
