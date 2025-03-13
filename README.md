@@ -2,6 +2,18 @@
 Project to do the first steps with Express and NodeJS.
 It has been developed following a [midudev tutorial](https://youtube.com/playlist?list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7).
 
+## Table of contents
+- [Steps followed to create this project](#steps-followed-to-create-this-project)
+  - [Create a docker container](#create-a-docker-container)
+  - [Init a NodeJS project](#init-a-nodejs-project)
+  - [Set up our first HTTP server](#set-up-our-first-http-server)
+  - [Adding another layer](#adding-another-layer)
+    - [Remove `x-powered-to` header](#remove-x-powered-to-header)
+    - [Configure the server to use JSONs](#configure-the-server-to-use-jsons)
+    - [Change the type of the project](#change-the-type-of-the-project)
+    - [Import json files](#import-json-files)
+- [References](#references)
+
 ## Steps followed to create this project
 ### Create a docker container
 If you don't have any language interpreter installed in your computer, like me, you can use [Docker](https://docs.docker.com/engine/install/) to package, run and deploy your project.
